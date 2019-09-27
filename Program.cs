@@ -40,7 +40,7 @@ namespace VisualProgrammingProject
             databaseConnection =  new MySqlConnection(connectionString);
         }
 
-        public static void AddStudent(Student stud)
+        public static bool AddStudent(Student stud)
         {
             string query = $"insert into students_list values (\"{stud.StudentId}\", \"{stud.FirstName}\", \"{stud.LastName}\", {stud.Year}, \"{stud.Branch}\", {stud.Cgpa}, \"{stud.Campus}\")";
             using (MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection)
@@ -52,16 +52,17 @@ namespace VisualProgrammingProject
                 {
                     databaseConnection.Open();
                     MySqlDataReader reader = commandDatabase.ExecuteReader();
-                    databaseConnection.Close();
                     Console.WriteLine(reader);
-                    MessageBox.Show("User added successfully");
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
-                    MessageBox.Show(e.Message);
+                    databaseConnection.Close();
+                    return false;
                 }
+                databaseConnection.Close();
                 commandDatabase.Dispose();
+                return true;
             }
         }
 

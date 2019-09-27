@@ -65,6 +65,9 @@ namespace VisualProgrammingProject
             if (result == DialogResult.OK)
             {
                 FetchAndUpdateStudentsList();
+            } else
+            {
+
             }
             form.Dispose();
         }

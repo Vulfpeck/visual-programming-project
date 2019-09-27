@@ -58,13 +58,15 @@ namespace VisualProgrammingProject
             this.Branch,
             this.CGPA,
             this.Campus});
+            this.studentsListView.ForeColor = System.Drawing.Color.Black;
             this.studentsListView.FullRowSelect = true;
             this.studentsListView.GridLines = true;
             this.studentsListView.HideSelection = false;
-            this.studentsListView.Location = new System.Drawing.Point(0, 160);
-            this.studentsListView.Margin = new System.Windows.Forms.Padding(16);
+            this.studentsListView.Location = new System.Drawing.Point(0, 153);
+            this.studentsListView.Margin = new System.Windows.Forms.Padding(19, 18, 19, 18);
+            this.studentsListView.MultiSelect = false;
             this.studentsListView.Name = "studentsListView";
-            this.studentsListView.Size = new System.Drawing.Size(784, 301);
+            this.studentsListView.Size = new System.Drawing.Size(930, 418);
             this.studentsListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.studentsListView.TabIndex = 0;
             this.studentsListView.UseCompatibleStateImageBehavior = false;
@@ -114,7 +116,7 @@ namespace VisualProgrammingProject
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Beige;
-            this.label1.Location = new System.Drawing.Point(12, 34);
+            this.label1.Location = new System.Drawing.Point(14, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(361, 32);
             this.label1.TabIndex = 1;
@@ -126,9 +128,9 @@ namespace VisualProgrammingProject
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(18, 80);
+            this.button1.Location = new System.Drawing.Point(21, 92);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 35);
+            this.button1.Size = new System.Drawing.Size(210, 40);
             this.button1.TabIndex = 2;
             this.button1.Text = "+ Add new student ";
             this.button1.UseVisualStyleBackColor = false;
@@ -136,19 +138,20 @@ namespace VisualProgrammingProject
             // 
             // ApplicationHomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(915, 532);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.studentsListView);
+            this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(931, 571);
             this.Name = "ApplicationHomeForm";
             this.ShowIcon = false;
             this.Text = "Student Management System";

@@ -81,11 +81,28 @@ namespace VisualProgrammingProject
 
         private void AddStudentButtonClick(object sender, EventArgs e)
         {
-            if (this.newStudent.ValidateEntries()) {
-                DBRepo.AddStudent(this.newStudent);
+            this.SaveStudentButton.DialogResult = DialogResult.None;
+            this.CancelButton.DialogResult = DialogResult.None;
+            this.DialogResult = DialogResult.None;
+            if (this.newStudent.ValidateEntries())
+            {
+                bool result = DBRepo.AddStudent(this.newStudent);
+                if (!result)
+                {
+                    MessageBox.Show("Student already exists");
+                }
+                else
+                {
+                    this.SaveStudentButton.DialogResult = DialogResult.OK;
+                    this.CancelButton.DialogResult = DialogResult.OK;
+                    this.DialogResult = DialogResult.OK;
+                    MessageBox.Show("User added successfully");
+                }
             }
             else
+            {
                 MessageBox.Show("Please fill all the values");
+            }
         }
 
         private void YearBox_SelectedIndexChanged(object sender, EventArgs e)
