@@ -12,7 +12,7 @@ namespace VisualProgrammingProject
 {
     public partial class AddStudentDetails : Form
     {
-        private Student newStudent;
+        readonly private Student newStudent;
         public AddStudentDetails()
         {
             newStudent = new Student();
@@ -78,8 +78,9 @@ namespace VisualProgrammingProject
 
         private void AddStudentButtonClick(object sender, EventArgs e)
         {
-            if (this.newStudent.validateEntries())
+            if (this.newStudent.ValidateEntries()) {
                 DBRepo.AddStudent(this.newStudent);
+            }
             else
                 MessageBox.Show("Please fill all the values");
         }
@@ -93,6 +94,11 @@ namespace VisualProgrammingProject
         private void Button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Label11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -7,7 +7,6 @@ C:\Users\tusha\source\repos\VisualProgrammingProject\obj\Debug\VisualProgramming
 C:\Users\tusha\source\repos\VisualProgrammingProject\obj\Debug\VisualProgrammingProject.csproj.CoreCompileInputs.cache
 C:\Users\tusha\source\repos\VisualProgrammingProject\obj\Debug\VisualProgrammingProject.exe
 C:\Users\tusha\source\repos\VisualProgrammingProject\obj\Debug\VisualProgrammingProject.pdb
-C:\Users\tusha\source\repos\VisualProgrammingProject\obj\Debug\VisualProgrammingProject.InitialForm.resources
 C:\Users\tusha\source\repos\VisualProgrammingProject\bin\Debug\MySql.Data.dll
 C:\Users\tusha\source\repos\VisualProgrammingProject\bin\Debug\Google.Protobuf.dll
 C:\Users\tusha\source\repos\VisualProgrammingProject\bin\Debug\Renci.SshNet.dll
@@ -15,4 +14,4 @@ C:\Users\tusha\source\repos\VisualProgrammingProject\bin\Debug\BouncyCastle.Cryp
 C:\Users\tusha\source\repos\VisualProgrammingProject\bin\Debug\MySql.Data.xml
 C:\Users\tusha\source\repos\VisualProgrammingProject\obj\Debug\VisualProgrammingProject.AddStudentDetails.resources
 C:\Users\tusha\source\repos\VisualProgrammingProject\obj\Debug\VisualProgrammingProject.csproj.CopyComplete
-C:\Users\tusha\source\repos\VisualProgrammingProject\obj\Debug\VisualProgrammingProject.ViewAllStudents.resources
+C:\Users\tusha\source\repos\VisualProgrammingProject\obj\Debug\VisualProgrammingProject.ApplicationHomeForm.resources

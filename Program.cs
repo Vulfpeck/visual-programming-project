@@ -16,77 +16,105 @@ namespace VisualProgrammingProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InitialForm());
+            
+            /// This is primary form that is loaded when the application is started
+            Application.Run(new ApplicationHomeForm());
         }
     }
 
+    /// <summary>
+    ///  DBRepo is the central class that handles the database connectivity through static
+    ///  members and methods
+    ///  
+    /// Add create/read/update/delete methods here only 
+    /// </summary>
     static class DBRepo
     {
+        // modify this string to your database, create database accordingly
         const string connectionString = "datasource=127.0.0.1;port=3306;username=tushar;password=tushar;database=students_db;";
-        static MySqlConnection databaseConnection;
+        readonly static MySqlConnection databaseConnection;
 
         static DBRepo()
         {
+            // init the database connection
             databaseConnection =  new MySqlConnection(connectionString);
         }
 
         public static void AddStudent(Student stud)
         {
             string query = $"insert into students_list values (\"{stud.StudentId}\", \"{stud.FirstName}\", \"{stud.LastName}\", {stud.Year}, \"{stud.Branch}\", {stud.Cgpa}, \"{stud.Campus}\")";
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.CommandTimeout = 60;
-            try
+            using (MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection)
             {
-                databaseConnection.Open();
-                MySqlDataReader reader = commandDatabase.ExecuteReader();
-                databaseConnection.Close();
-                Console.WriteLine(reader);
-                MessageBox.Show("User added successfully");
-            } catch (Exception e)
+                CommandTimeout = 60
+            })
             {
-                Console.WriteLine(e.Message);
-                MessageBox.Show(e.Message);
+                try
+                {
+                    databaseConnection.Open();
+                    MySqlDataReader reader = commandDatabase.ExecuteReader();
+                    databaseConnection.Close();
+                    Console.WriteLine(reader);
+                    MessageBox.Show("User added successfully");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    MessageBox.Show(e.Message);
+                }
+                commandDatabase.Dispose();
             }
         }
 
+        /// <summary>
+        /// Creates a list of Students fetched from the database
+        /// </summary>
+        /// <returns>List of Student type object</returns>
         internal static List<Student> FetchAllStudents()
         {
             List<Student> studentsList = new List<Student>();
             string query = $"select * from students_list";
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection)
+            using (MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection)
             {
                 CommandTimeout = 30
-            };
-            try
+            })
             {
-                databaseConnection.Open();
-                MySqlDataReader  reader = commandDatabase.ExecuteReader();
-                if(reader.HasRows)
+                try
                 {
-                    while (reader.Read())
+                    databaseConnection.Open();
+                    MySqlDataReader reader = commandDatabase.ExecuteReader();
+                    if (reader.HasRows)
                     {
-                        Student temp = new Student(
-                            reader.GetString(0),
-                            reader.GetString(1),
-                            reader.GetString(2),
-                            reader.GetInt16(3),
-                            reader.GetString(4),
-                            reader.GetDouble(5),
-                            reader.GetString(6)
-                        );
-                        studentsList.Add(temp);
-                        Console.WriteLine(temp.ToString());
+                        while (reader.Read())
+                        {
+                            Student temp = new Student(
+                                reader.GetString(0),
+                                reader.GetString(1),
+                                reader.GetString(2),
+                                reader.GetInt16(3),
+                                reader.GetString(4),
+                                reader.GetDouble(5),
+                                reader.GetString(6)
+                            );
+                            studentsList.Add(temp);
+                            Console.WriteLine(temp.ToString());
+                        }
                     }
+                    databaseConnection.Close();
+                    commandDatabase.Dispose();
                 }
-                databaseConnection.Close(); 
-            } catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
             return studentsList;
         }
     }
 
+    /// <summary>
+    /// Student is the model class that we use to handle data coming to and from the table
+    /// Also contains some utility methods
+    /// </summary>
     class Student
     {
         string student_id;
@@ -113,7 +141,11 @@ namespace VisualProgrammingProject
             this.campus = campus;
         }
 
-        internal bool validateEntries()
+        /// <summary>
+        /// Method validates wether the data present in the object is valid or not
+        /// </summary>
+        /// <returns>A bool. True if data is valid, false otherwise.</returns>
+        internal bool ValidateEntries()
         {
             if (this.first_name == "" || this.last_name == "" || this.student_id == "" || this.year == 0 || this.branch == "" || this.cgpa == 0.0 || this.campus == "")
             {
