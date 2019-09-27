@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace VisualProgrammingProject
 {
-    public partial class Form1 : Form
+    public partial class ViewAllStudents : Form
     {
-        public Form1()
+        List<Student> studentsList;
+                public ViewAllStudents()
         {
+
+            studentsList = DBRepo.FetchAllStudents();
+            Console.Write("Fetched");
             InitializeComponent();
+
         }
     }
 }
