@@ -69,6 +69,7 @@ namespace VisualProgrammingProject
             this.studentsListView.TabIndex = 0;
             this.studentsListView.UseCompatibleStateImageBehavior = false;
             this.studentsListView.View = System.Windows.Forms.View.Details;
+            this.studentsListView.DoubleClick += new System.EventHandler(this.StudentDetailsList_DoubleClick);
             // 
             // StudentID
             // 
@@ -133,7 +134,7 @@ namespace VisualProgrammingProject
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.AddStudentDetailsButton_Click);
             // 
-            // ViewAllStudents
+            // ApplicationHomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,12 +149,10 @@ namespace VisualProgrammingProject
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(800, 500);
-            this.Name = "ViewAllStudents";
+            this.Name = "ApplicationHomeForm";
             this.ShowIcon = false;
-            this.Text = "ViewAllStudents";
+            this.Text = "Student Management System";
             this.Load += new System.EventHandler(this.ViewAllStudents_Load);
-
-            studentsListView.DoubleClick += new EventHandler(StudentDetailsList_DoubleClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 

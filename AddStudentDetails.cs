@@ -12,6 +12,9 @@ namespace VisualProgrammingProject
 {
     public partial class AddStudentDetails : Form
     {
+        // all the methods mostly act as event listeners and updated the values stored in the 
+        // student object created. When the add button is pressed this object is passed onto the
+        // DBRepo function to add it to the database
         readonly private Student newStudent;
         public AddStudentDetails()
         {
