@@ -14,7 +14,7 @@ namespace VisualProgrammingProject
     public partial class UpdateDeleteForm : Form
     {
         Student student;
-        public UpdateDeleteForm(int studentId)
+        public UpdateDeleteForm(String studentId)
         {
             Student fetchedStudent = DBRepo.FetchStudentById(studentId);
             Debug.WriteLine(fetchedStudent.ToString());
@@ -63,7 +63,7 @@ namespace VisualProgrammingProject
 					this.UpdateDetailsButton.DialogResult = DialogResult.OK;
 					this.CancelButton.DialogResult = DialogResult.OK;
 					this.DialogResult = DialogResult.OK;
-					MessageBox.Show("User udpate successfully");
+					MessageBox.Show("User updated successfully");
 				}
 			}
 			else {

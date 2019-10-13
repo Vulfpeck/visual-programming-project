@@ -43,6 +43,7 @@ namespace VisualProgrammingProject
 
 		public static bool AddStudent(Student stud)
 		{
+			Debug.WriteLine("Final student id" + stud.StudentId);
 			string query = $"insert into students_list values (\"{stud.StudentId}\", \"{stud.FirstName}\", \"{stud.LastName}\", {stud.Year}, \"{stud.Branch}\", {stud.Cgpa}, \"{stud.Campus}\")";
 			using (MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection)
 			{
@@ -140,7 +141,7 @@ namespace VisualProgrammingProject
 		public static bool UpdateStudentData(Student stud)
 		{
 			Debug.WriteLine(stud.ToString());
-			string query = $"update students_list set student_id=\"{stud.StudentId}\" , first_name=\"{stud.FirstName}\", last_name=\"{stud.LastName}\", year={stud.Year}, branch=\"{stud.Branch}\", cgpa={stud.Cgpa}, campus=\"{stud.Campus}\" where student_id={stud.StudentId}";
+			string query = $"update students_list set student_id=\"{stud.StudentId}\" , first_name=\"{stud.FirstName}\", last_name=\"{stud.LastName}\", year={stud.Year}, branch=\"{stud.Branch}\", cgpa={stud.Cgpa}, campus=\"{stud.Campus}\" where student_id=\"{stud.StudentId}\"";
 			using (MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection)
 			{
 				CommandTimeout = 60
@@ -164,11 +165,11 @@ namespace VisualProgrammingProject
 			}
 		}
 
-		public static Student FetchStudentById(int id)
+		public static Student FetchStudentById(String id)
 		{
 			Student fetchedStudent = new Student();
 
-			string query = $"select * from students_list where student_id={id}";
+			string query = $"select * from students_list where student_id=\"{id}\"";
 			using (MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection)
 			{
 				CommandTimeout = 30

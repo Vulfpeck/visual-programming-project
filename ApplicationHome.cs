@@ -54,7 +54,7 @@ namespace VisualProgrammingProject
         {
             ListViewItem s =  ((ListView)sender).SelectedItems[0];
            
-            UpdateDeleteForm form = new UpdateDeleteForm(Int32.Parse(s.Text));
+            UpdateDeleteForm form = new UpdateDeleteForm(s.Text);
             DialogResult result =  form.ShowDialog();
            if (result == DialogResult.OK)
 			{

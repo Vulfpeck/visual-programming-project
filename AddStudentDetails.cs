@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,7 @@ namespace VisualProgrammingProject
         private void StudendIDBoxTextChangedEvent(object sender, EventArgs e)
         {
             this.newStudent.StudentId = ((TextBox)sender).Text;
+			Debug.WriteLine(newStudent.StudentId);
         }
 
         private void Label9_Click(object sender, EventArgs e)
@@ -87,6 +89,7 @@ namespace VisualProgrammingProject
             this.DialogResult = DialogResult.None;
             if (this.newStudent.ValidateEntries())
             {
+				Debug.WriteLine(this.newStudent.ToString());
                 bool result = DBRepo.AddStudent(this.newStudent);
                 if (!result)
                 {
