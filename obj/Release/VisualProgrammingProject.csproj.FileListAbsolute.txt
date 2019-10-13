@@ -1,0 +1,6 @@
+C:\Users\tusha\Source\Repos\visual-programming-project\obj\Release\VisualProgrammingProject.csprojAssemblyReference.cache
+C:\Users\tusha\Source\Repos\visual-programming-project\obj\Release\VisualProgrammingProject.AddStudentDetails.resources
+C:\Users\tusha\Source\Repos\visual-programming-project\obj\Release\VisualProgrammingProject.UpdateDeleteForm.resources
+C:\Users\tusha\Source\Repos\visual-programming-project\obj\Release\VisualProgrammingProject.Properties.Resources.resources
+C:\Users\tusha\Source\Repos\visual-programming-project\obj\Release\VisualProgrammingProject.ApplicationHomeForm.resources
+C:\Users\tusha\Source\Repos\visual-programming-project\obj\Release\VisualProgrammingProject.csproj.GenerateResource.cache

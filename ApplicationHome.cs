@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
+
 
 namespace VisualProgrammingProject
 {
@@ -50,10 +52,17 @@ namespace VisualProgrammingProject
         // TODO: Add methods update and delete student information
         private void StudentDetailsList_DoubleClick(object sender, EventArgs e)
         {
-            foreach (ListViewItem s in ((ListView)sender).SelectedItems)
-            {
-                Console.WriteLine(s.ToString());
-            }
+            ListViewItem s =  ((ListView)sender).SelectedItems[0];
+           
+            UpdateDeleteForm form = new UpdateDeleteForm(Int32.Parse(s.Text));
+            DialogResult result =  form.ShowDialog();
+           if (result == DialogResult.OK)
+			{
+				FetchAndUpdateStudentsList();
+			} else
+			{
+
+			}
         }
 
         ///Event handler for the Add students button

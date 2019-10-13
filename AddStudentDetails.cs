@@ -44,6 +44,7 @@ namespace VisualProgrammingProject
 
         private void Branch_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Console.WriteLine("Branch Index changed");
             this.newStudent.Branch = ((ComboBox)sender).SelectedItem.ToString();
             Console.WriteLine(newStudent);
         }
